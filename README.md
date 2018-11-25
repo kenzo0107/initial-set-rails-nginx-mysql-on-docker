@@ -74,9 +74,7 @@ docker-compose run --rm --no-deps web bundle install -j6
 * `*.hoge.test` というドメインで 自己証明書 作成
 
 ```
-cd docker/development/nginx/ssl
-chmod +x setup.sh
-./setup.sh
+cd docker/development/nginx/ssl && ./setup.sh
 ```
 
 ※ ドメインを変更する場合は `setup.sh` 内の `SSL_DOMAIN` を変更してください。
@@ -96,12 +94,12 @@ chmod +x setup.sh
 ```
 development:
   <<: *default
-  host: db
++  host: db
   database: app_development
 
 test:
   <<: *default
-  host: db
++  host: db
   database: app_test
 ```
 
@@ -116,12 +114,6 @@ docker-compose run --rm web bundle exec rake db:migrate
 ```
 
 ## 起動してみる。
-
-```
-chmod +x docker/development/rails/entrypoint.sh
-```
-
-いざ、起動
 
 ```
 docker-compose up
