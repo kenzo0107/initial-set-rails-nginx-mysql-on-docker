@@ -16,8 +16,6 @@ services:
       - db
     depends_on:
       - db
-    environment:
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
     tty: true
     stdin_open: true
 
