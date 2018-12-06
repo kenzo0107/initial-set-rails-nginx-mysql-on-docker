@@ -1,7 +1,6 @@
 # alpineだと↓の問題が出たためひとまず回避
 # https://github.com/docker-library/ruby/issues/196
 FROM ruby:2.5.3-slim
-LABEL maintainer="kiyotaka.sasaya@medpeer.co.jp"
 
 ENV LANG C.UTF-8
 
@@ -10,7 +9,7 @@ RUN apt update && \
     apt install -y --no-install-recommends \
       build-essential mysql-client default-libmysqlclient-dev \
       tzdata less file imagemagick chromium chromedriver wget curl gnupg vim && \
-    curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt update && \
